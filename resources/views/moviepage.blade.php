@@ -29,40 +29,36 @@
             <a href="#home" id="homeBtn">Home</a>
             <a href="#popularmovie" id="popularBtn">Popular Movies</a>
             <a href="#upcoming" id="upcomingBtn">Upcoming Movies</a>
-
         </div>
 
-        <!-- search start -->
+        <!-- search and auth -->
         <div class="wrapper">
             <!-- search container -->
             <div class="search-container">
                 <div class="search-element">
-
                     <input type="text" class="form-control" placeholder="Search Movie ..." id="movie-search-box" onkeyup="findMovies()" onclick="findMovies()" />
                     <div class="search-list" id="search-list"></div>
                 </div>
             </div>
-            <!-- search container end -->
 
-
-
-            <!-- extra -->
-            <div class="navbar-extra">
-                <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+            @if(session('username'))
+            <div class="auth-container">
+                <img src="/img/avatar.png" alt="Profile" class="profile-photo">
+                <span class="username">Hi, {{ session('username') }}</span>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
             </div>
+            @endif
+        </div>
+
+        <!-- extra -->
+        <div class="navbar-extra">
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
     </nav>
     <!-- navbar end -->
-
-    <!-- auth header -->
-    @if(session('username'))
-    <div style="position:fixed; top:70px; right:20px; z-index:2000; color:#fff;">
-        <span style="margin-right:10px;">Hi, {{ session('username') }}</span>
-        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-            @csrf
-            <button type="submit" style="background:#ff4d4d;color:#fff;border-radius:6px;padding:6px 10px;border:none;cursor:pointer;">Logout</button>
-        </form>
-    </div>
-    @endif
 
     <!-- Hero Section start -->
     <div class="carousel next" id="home">
