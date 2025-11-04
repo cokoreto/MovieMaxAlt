@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: url("/img/Netflix-Background.jpg");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+img.logo {
+  height: auto;
+  margin-right: 20px; /* Jarak antara logo dan form */
+}
+
+.login-container {
+  background-color: #000000c2;
+  padding: 60px 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  width: 350px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+}
+
+input[type="submit"],
+.btn,
+.logout-btn {
+  width: 70%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover,
+.btn:hover,
+.logout-btn:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.text-info {
+  padding-top: 10px;
+  color: white;
+}
+
+a {
+  color: rgb(124, 124, 124);
+}
+
+::placeholder {
+  color: rgb(94, 94, 94);
+}
+
+/* FOOTER START */
+
+footer {
+  text-align: center;
+  padding: 1rem 0 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+footer .credit {
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px black;
+}
+footer .credit p {
+  color: white;
+}
+footer .credit a {
+  color: rgb(0, 149, 255);
+  font-weight: 900;
+  text-decoration: none;
+}
+footer .links a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+footer .links a:hover {
+  color: rgb(0, 145, 255);
+  font-weight: 600;
+}
+
+/* FOOTER END */

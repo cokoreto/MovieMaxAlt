@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href='../admin/style.css'>
+</head>
+<body>
+
+<div class="wrapper">
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <i class="lni lni-grid-alt"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a href="#"></a>
+            </div>
+        </div>
+        <br>
+        <a href="../page/db_manager.php" class="sidebar-link">
+            <i class="lni lni-layout"></i>
+            <span>Data lengkap</span>
+        </a>
+     
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-link" onclick="document.getElementById('logout-form').submit(); return false;">
+                <i class="lni lni-exit"></i>
+                <span>Logout</span>
+            </a>
+            <form id="logout-form" method="POST" style="display: none;">
+                <input type="hidden" name="logout" value="LOGOUT">
+            </form>
+        </div>
+    </aside>
+    <div class="main">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <p class="navbar-brand">DASHBOARD <b><?php echo $_SESSION['username']; ?></b></p>
+                <img src="/img/avatar.png" style="width: 50px">
+            </div>
+        </nav>
+        <div class="card mt-4 ms-4 me-4 large">
+            <div class="card-header bg-primary text-white">
+                Data Penguna Movie Max Indonesia
+            </div>
+            <div class="card-body">
+
+                <!-- Button trigger modal -->
+                
+                <table class="table table-bordered table-striped table-hover" name="table_barang">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Pengguna</th>
+                        <th>Email</th>
+                        <th>password</th>
+                        <th>action</th>
+                    </tr>
+
+                    <?php
+                    $no = 1;
+                    $tampil = mysqli_query($koneksi, "SELECT * FROM db_officer ORDER BY id DESC");
+                    while ($data = mysqli_fetch_array($tampil)) :
+                    ?>
+
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $data['username'] ?></td>
+                        <td><?= $data['email'] ?></td>
+                        <td><?= $data['password'] ?></td>
+                        <td>
+                            <a href="#" class="btn btn-warning" data-bs-toggle="modal"
+                                data-bs-target="#modalubah<?= $no ?>"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" name="bhapus"
+                                data-bs-target="#modalHapus<?= $no ?>"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+
+
+
+                    <!-- Modal Update -->
+                    <div class="modal fade modal-lg" id="modalubah<?= $no ?>" aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Form Edit Profile</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <form method="POST" action="../page/db_officer.php">
+                                    <input type="hidden" name=id value="<?= $data['id'] ?>">
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label class="form-label">Username</label>
+                                            <input type="text" class="form-control" name="tnama_barang"
+                                                value="<?= $data["nama_barang"] ?>" placeholder="Masukan Nama Barang">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="text" name="tharga_satuan" value="<?= $data["harga_satuan"] ?>"
+                                                class="form-control">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" name="bupdate">Simpan</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- Akhir Update -->                    
+
+
+
+                    <!-- Modal Hapus-->
+                    <div class="modal fade modal-lg" id="modalHapus<?= $no ?>" aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Hapus</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <form method="POST" action="../page/db_officer.php">
+                                    <input type="hidden" name=id value="<?= $data['id'] ?>">
+                                    <div class="modal-body">
+                                        <h5 class="text-center">Apakah anda yakin ingin menghapus Data ini? <br>
+                                            <span class="text-danger"><?= $data['nama_barang'] ?></span>
+                                        </h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger" name="bhapus">Hapus</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- Akhir Hapus -->
+
+
+               
+
+
+            <?php endwhile; ?>
+        </table>
+    </div>
+</div>
+
+
+
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+        <script>
+            const hamBurger = document.querySelector(".toggle-btn");
+            hamBurger.addEventListener("click", function () {
+                document.querySelector("#sidebar").classList.toggle("expand");
+            });
+        </script>
+    </body>
+</html>
