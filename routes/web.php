@@ -4,15 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 
 
 // Tambahan route untuk /home agar tidak 404
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/signup', [SignupController::class, 'create']);
 Route::post('/signup', [SignupController::class, 'store'])->name('signup.store');

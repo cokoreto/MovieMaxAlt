@@ -43,7 +43,14 @@
 
             @if(session('username'))
             <div class="auth-container">
-                <img src="/img/avatar.png" alt="Profile" class="profile-photo">
+                <a href="/profile">
+                    @php
+                    // Ambil user dari database berdasarkan session user_id
+                    $user = \App\Models\Signup::find(session('user_id'));
+                    $profilePhoto = ($user && $user->photo) ? asset('storage/' . $user->photo) : asset('/img/avatar.png');
+                    @endphp
+                    <img src="{{ $profilePhoto }}" alt="Profile" class="profile-photo">
+                </a>
                 <span class="username">Hi, {{ session('username') }}</span>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
