@@ -105,7 +105,7 @@
         <div class="photo"><img src="/img/g6.jpg" alt="Photo 1"></div>
         <div class="photo"><img src="/img/g5.jpg" alt="Photo 2"></div>
         <div class="photo"><img src="/img/g14.jpg" alt="Photo 3"></div>
-        <div class="photo"><img src="/img/g10.jpg" alt="Photo 4"></div>
+        <div class="photo"><img src="/img/g4.jpg" alt="Photo 4"></div>
 
         <div class="photo"><img src="/img/g13.jpg" alt="Photo 6"></div>
     </div>

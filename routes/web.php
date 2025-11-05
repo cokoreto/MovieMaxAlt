@@ -82,3 +82,7 @@ Route::get('/captain_america', function () {
 Route::get('/bumblebee', function () {
     return view('/movie_stream/bumblebee');
 });
+
+Route::get('/nyan', function () {
+    return view('nyan');
+});
