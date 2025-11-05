@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Signup extends Model
 {
-    // table name matches migration 'signups' so default is fine
+    protected $table = 'signups'; 
+
     protected $fillable = [
         'username',
         'email',

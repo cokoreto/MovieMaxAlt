@@ -1,15 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\Admin\MovieAdminController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 
 // Tambahan route untuk /home agar tidak 404
 Route::get('/', function () {
     return view('home');
+});
+Route::get('/profile', function () {
+    return view('profile');
 });
 
 Route::get('/signup', [SignupController::class, 'create']);
