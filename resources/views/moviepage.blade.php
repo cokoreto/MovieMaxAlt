@@ -36,27 +36,29 @@
             <!-- search container -->
             <div class="search-container">
                 <div class="search-element">
-                    <input type="text" class="form-control" placeholder="Search Movie ..." id="movie-search-box" onkeyup="findMovies()" onclick="findMovies()" />
+                    <input type="text" class="form-control" placeholder="Search Movie ..." id="movie-search-box"
+                        onkeyup="findMovies()" onclick="findMovies()" />
                     <div class="search-list" id="search-list"></div>
                 </div>
             </div>
 
-            @if(session('username'))
-            <div class="auth-container">
-                <a href="/profile">
-                    @php
-                    // Ambil user dari database berdasarkan session user_id
-                    $user = \App\Models\Signup::find(session('user_id'));
-                    $profilePhoto = ($user && $user->photo) ? asset('storage/' . $user->photo) : asset('/img/avatar.png');
-                    @endphp
-                    <img src="{{ $profilePhoto }}" alt="Profile" class="profile-photo">
-                </a>
-                <span class="username">Hi, {{ session('username') }}</span>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="logout-btn">Logout</button>
-                </form>
-            </div>
+            @if (session('username'))
+                <div class="auth-container">
+                    <a href="/profile">
+                        @php
+                            // Ambil user dari database berdasarkan session user_id
+                            $user = \App\Models\Signup::find(session('user_id'));
+                            $profilePhoto =
+                                $user && $user->photo ? asset('storage/' . $user->photo) : asset('/img/avatar.png');
+                        @endphp
+                        <img src="{{ $profilePhoto }}" alt="Profile" class="profile-photo">
+                    </a>
+                    <span class="username">Hi, {{ session('username') }}</span>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </div>
             @endif
         </div>
 
@@ -79,7 +81,9 @@
                     <div class="title">Loki</div>
                     <div class="topic">Action, Drama, Fantasy</div>
                     <div class="author">
-                        Serial TV yang mengikuti petualangan karakter Loki dari Marvel Cinematic Universe setelah peristiwa dalam film "Avengers: Endgame", mengeksplorasi tema perjalanan waktu, realitas alternatif, dan identitas.
+                        Serial TV yang mengikuti petualangan karakter Loki dari Marvel Cinematic Universe setelah
+                        peristiwa dalam film "Avengers: Endgame", mengeksplorasi tema perjalanan waktu, realitas
+                        alternatif, dan identitas.
                     </div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
@@ -104,7 +108,9 @@
                     <div class="author">2019</div>
                     <div class="title">The Joker</div>
                     <div class="topic">Psychology, Drama</div>
-                    <div class="author">Film yang menggambarkan asal-usul karakter Joker dari DC Comics, fokus pada perjalanan psikologis Arthur Fleck, seorang komedian gagal yang akhirnya menjadi tokoh kriminal yang terkenal.</div>
+                    <div class="author">Film yang menggambarkan asal-usul karakter Joker dari DC Comics, fokus pada
+                        perjalanan psikologis Arthur Fleck, seorang komedian gagal yang akhirnya menjadi tokoh kriminal
+                        yang terkenal.</div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
                         <button id="ratingBtn">
@@ -128,11 +134,16 @@
                         <div class="info">
                             <h2>Loki<br /><span>2021</span></h2>
                             <p>
-                                Dalam serial ini, kita mengikuti petualangan Loki, dewa tipu muslihat dari mitologi Norse dan karakter yang telah kita kenal dari Marvel Cinematic Universe (MCU), setelah peristiwa yang terjadi dalam "Avengers: Endgame".
-                                Loki dihadapkan pada Organisasi Variasi Waktu (TVA), yang mengawasi perjalanan waktu di MCU, dan dia terlibat dalam upaya untuk memperbaiki kerusakan yang dia sebabkan dalam aliran waktu, sambil menjelajahi konsep realitas
+                                Dalam serial ini, kita mengikuti petualangan Loki, dewa tipu muslihat dari mitologi
+                                Norse dan karakter yang telah kita kenal dari Marvel Cinematic Universe (MCU), setelah
+                                peristiwa yang terjadi dalam "Avengers: Endgame".
+                                Loki dihadapkan pada Organisasi Variasi Waktu (TVA), yang mengawasi perjalanan waktu di
+                                MCU, dan dia terlibat dalam upaya untuk memperbaiki kerusakan yang dia sebabkan dalam
+                                aliran waktu, sambil menjelajahi konsep realitas
                                 alternatif dan pertanyaan tentang identitasnya sendiri.
                             </p>
-                            <a href="https://youtu.be/nW948Va-l10?si=3VRbCK919eTFNE9F" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/nW948Va-l10?si=3VRbCK919eTFNE9F" class="trailer-btn"
+                                id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -145,7 +156,8 @@
                     <div class="author">2019</div>
                     <div class="title">John Wick 3</div>
                     <div class="topic">Action, Thriller</div>
-                    <div class="author">Film aksi yang melanjutkan kisah John Wick, seorang pembunuh bayaran yang harus bertahan hidup setelah menjadi target oleh organisasi kriminal internasional.</div>
+                    <div class="author">Film aksi yang melanjutkan kisah John Wick, seorang pembunuh bayaran yang harus
+                        bertahan hidup setelah menjadi target oleh organisasi kriminal internasional.</div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
                         <button id="ratingBtn">
@@ -169,10 +181,15 @@
                         <div class="info">
                             <h2>The Joker<br /><span>2019</span></h2>
                             <p>
-                                Film ini memperlihatkan asal-usul ikonik dari karakter Joker dari DC Comics. Arthur Fleck adalah seorang pria yang hidupnya terasa hampa dan putus asa di Kota Gotham yang korup. Dia bermimpi menjadi komedian yang sukses,
-                                tetapi ketidakberuntungan terus menimpanya, mendorongnya ke tepi kegilaan. Dalam perjalanan psikologis yang gelap, Arthur berubah menjadi Joker, tokoh kriminal yang terkenal dengan kekacauan dan kebrutalannya.
+                                Film ini memperlihatkan asal-usul ikonik dari karakter Joker dari DC Comics. Arthur
+                                Fleck adalah seorang pria yang hidupnya terasa hampa dan putus asa di Kota Gotham yang
+                                korup. Dia bermimpi menjadi komedian yang sukses,
+                                tetapi ketidakberuntungan terus menimpanya, mendorongnya ke tepi kegilaan. Dalam
+                                perjalanan psikologis yang gelap, Arthur berubah menjadi Joker, tokoh kriminal yang
+                                terkenal dengan kekacauan dan kebrutalannya.
                             </p>
-                            <a href="https://youtu.be/t433PEQGErc?si=Qyw4dBQr-imtZp2y" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/t433PEQGErc?si=Qyw4dBQr-imtZp2y" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -185,7 +202,9 @@
                     <div class="author">2021</div>
                     <div class="title">Spiderman</div>
                     <div class="topic">Superhero, Action, Fantasy</div>
-                    <div class="author">Film superhero yang melanjutkan kisah Spider-Man dalam Marvel Cinematic Universe (MCU), dengan elemen multiverse yang membawa kembali karakter-karakter dari film-film Spider-Man sebelumnya.</div>
+                    <div class="author">Film superhero yang melanjutkan kisah Spider-Man dalam Marvel Cinematic
+                        Universe (MCU), dengan elemen multiverse yang membawa kembali karakter-karakter dari film-film
+                        Spider-Man sebelumnya.</div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
                         <button id="ratingBtn">
@@ -209,11 +228,16 @@
                         <div class="info">
                             <h2>John Wick 3<br /><span>2019</span></h2>
                             <p>
-                                Film ini melanjutkan kisah John Wick, seorang mantan pembunuh bayaran legendaris yang berjuang untuk bertahan hidup setelah menjadi target oleh organisasi kriminal internasional. Setelah membunuh anggota High Table di
-                                Continental Hotel, John dikejar oleh pembunuh bayaran dari seluruh dunia, dan dia harus mencari jalan keluar dengan segala cara yang dia miliki. Petualangannya penuh dengan aksi yang intens, dan dia harus menggunakan
+                                Film ini melanjutkan kisah John Wick, seorang mantan pembunuh bayaran legendaris yang
+                                berjuang untuk bertahan hidup setelah menjadi target oleh organisasi kriminal
+                                internasional. Setelah membunuh anggota High Table di
+                                Continental Hotel, John dikejar oleh pembunuh bayaran dari seluruh dunia, dan dia harus
+                                mencari jalan keluar dengan segala cara yang dia miliki. Petualangannya penuh dengan
+                                aksi yang intens, dan dia harus menggunakan
                                 keahlian tempurnya untuk melawan musuh-musuhnya.
                             </p>
-                            <a href="https://youtu.be/M7XM597XO94?si=OLMBmLnMVsUdcYXK" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/M7XM597XO94?si=OLMBmLnMVsUdcYXK" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -227,7 +251,9 @@
                     <div class="title">Godzilla</div>
                     <div class="topic">Action, Fantasy</div>
                     <div class="author">
-                        Film yang menampilkan pertempuran epik antara Godzilla dan monster-monster besar lainnya, dengan latar belakang upaya manusia untuk bertahan di tengah kekacauan yang ditimbulkan oleh para titan tersebut.
+                        Film yang menampilkan pertempuran epik antara Godzilla dan monster-monster besar lainnya, dengan
+                        latar belakang upaya manusia untuk bertahan di tengah kekacauan yang ditimbulkan oleh para titan
+                        tersebut.
                     </div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
@@ -252,11 +278,16 @@
                         <div class="info">
                             <h2>Spider-man : No Way Home<br /><span>2021</span></h2>
                             <p>
-                                Mengikuti kisah Spider-Man dalam MCU,film ini menampilkan Peter Parker yang berusaha memperbaiki kekacauan yang disebabkan oleh identitas rahasianya yang terbongkar dan menyelamatkan orang-orang yang dicintainya setelah
-                                multiverse terbuka. Dengan bantuan Doctor Strange, Peter mencoba mengembalikan kehidupannya yang normal, tetapi ketika penjahat dari realitas lain muncul, dia harus menghadapi tantangan besar untuk melindungi dunia dan
+                                Mengikuti kisah Spider-Man dalam MCU,film ini menampilkan Peter Parker yang berusaha
+                                memperbaiki kekacauan yang disebabkan oleh identitas rahasianya yang terbongkar dan
+                                menyelamatkan orang-orang yang dicintainya setelah
+                                multiverse terbuka. Dengan bantuan Doctor Strange, Peter mencoba mengembalikan
+                                kehidupannya yang normal, tetapi ketika penjahat dari realitas lain muncul, dia harus
+                                menghadapi tantangan besar untuk melindungi dunia dan
                                 menghadapi masa depannya yang tak terduga.
                             </p>
-                            <a href="https://youtu.be/JfVOs4VSpmA?si=VbVJFz995Z8nWhsj" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/JfVOs4VSpmA?si=VbVJFz995Z8nWhsj" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -270,7 +301,9 @@
                     <div class="title">1917</div>
                     <div class="topic">Drama, Action, Thriller</div>
                     <div class="author">
-                        Film drama perang yang mengikuti perjalanan dua prajurit muda dalam Perang Dunia I yang berusaha mengirim pesan penting untuk menyelamatkan ratusan tentara, dengan teknik pengambilan gambar yang memberikan ilusi seolah-olah
+                        Film drama perang yang mengikuti perjalanan dua prajurit muda dalam Perang Dunia I yang berusaha
+                        mengirim pesan penting untuk menyelamatkan ratusan tentara, dengan teknik pengambilan gambar
+                        yang memberikan ilusi seolah-olah
                         diambil dalam satu take panjang.
                     </div>
                     <div class="buttons">
@@ -296,10 +329,15 @@
                         <div class="info">
                             <h2>Godzilla, King of the Monsters<br /><span>2019</span></h2>
                             <p>
-                                Film ini menampilkan pertempuran epik antara Godzilla, raja dari semua monster, dan monster-monster lainnya seperti Mothra, Rodan, dan King Ghidorah. Ketika para titan berjuang untuk supremasi, manusia harus berjuang untuk
-                                bertahan hidup dan menemukan cara untuk mengendalikan kekuatan mereka. Dalam kekacauan yang melanda dunia, seorang ilmuwan dan sekelompok tentara berusaha untuk menyelamatkan umat manusia dari kehancuran.
+                                Film ini menampilkan pertempuran epik antara Godzilla, raja dari semua monster, dan
+                                monster-monster lainnya seperti Mothra, Rodan, dan King Ghidorah. Ketika para titan
+                                berjuang untuk supremasi, manusia harus berjuang untuk
+                                bertahan hidup dan menemukan cara untuk mengendalikan kekuatan mereka. Dalam kekacauan
+                                yang melanda dunia, seorang ilmuwan dan sekelompok tentara berusaha untuk menyelamatkan
+                                umat manusia dari kehancuran.
                             </p>
-                            <a href="https://youtu.be/wVDtmouV9kM?si=rh-DRLTz2WA7HWgO" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/wVDtmouV9kM?si=rh-DRLTz2WA7HWgO" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -313,7 +351,9 @@
                     <div class="title">Interstellar</div>
                     <div class="topic">Drama, Adventure</div>
                     <div class="author">
-                        Film fiksi ilmiah yang mengikuti sekelompok astronot yang melakukan perjalanan ke luar angkasa untuk mencari planet baru yang dapat dihuni manusia, dengan mengeksplorasi konsep-konsep seperti relativitas waktu dan dimensi
+                        Film fiksi ilmiah yang mengikuti sekelompok astronot yang melakukan perjalanan ke luar angkasa
+                        untuk mencari planet baru yang dapat dihuni manusia, dengan mengeksplorasi konsep-konsep seperti
+                        relativitas waktu dan dimensi
                         lain.
                     </div>
                     <div class="buttons">
@@ -339,11 +379,16 @@
                         <div class="info">
                             <h2>1917<br /><span>2019</span></h2>
                             <p>
-                                Film ini mengikuti perjalanan dua prajurit muda, Schofield dan Blake, yang diberi misi untuk menyampaikan pesan penting yang dapat menyelamatkan ratusan tentara di garis depan Perang Dunia I. Dalam perjalanan yang penuh
-                                bahaya dan rintangan, mereka harus menyeberangi medan perang yang hancur dan menavigasi melalui pertempuran yang berkecamuk untuk mencapai tujuan mereka. Dengan teknik pengambilan gambar yang inovatif, film ini memberikan
+                                Film ini mengikuti perjalanan dua prajurit muda, Schofield dan Blake, yang diberi misi
+                                untuk menyampaikan pesan penting yang dapat menyelamatkan ratusan tentara di garis depan
+                                Perang Dunia I. Dalam perjalanan yang penuh
+                                bahaya dan rintangan, mereka harus menyeberangi medan perang yang hancur dan menavigasi
+                                melalui pertempuran yang berkecamuk untuk mencapai tujuan mereka. Dengan teknik
+                                pengambilan gambar yang inovatif, film ini memberikan
                                 pengalaman yang mendalam tentang ketegangan dan pengorbanan dalam perang.
                             </p>
-                            <a href="https://youtu.be/gZjQROMAh_s?si=x01KwCQQKvT7oW5Z" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/gZjQROMAh_s?si=x01KwCQQKvT7oW5Z" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -356,7 +401,9 @@
                     <div class="author">2017</div>
                     <div class="title">IT</div>
                     <div class="topic">Horror, Thriller</div>
-                    <div class="author">Film horor yang mengisahkan sekelompok anak yang berusaha menghadapi kekuatan jahat yang mengancam kota kecil mereka, dalam bentuk badut menakutkan yang dikenal sebagai Pennywise.</div>
+                    <div class="author">Film horor yang mengisahkan sekelompok anak yang berusaha menghadapi kekuatan
+                        jahat yang mengancam kota kecil mereka, dalam bentuk badut menakutkan yang dikenal sebagai
+                        Pennywise.</div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
                         <button id="ratingBtn">
@@ -380,10 +427,15 @@
                         <div class="info">
                             <h2>Interstellar<br /><span>2014</span></h2>
                             <p>
-                                Film ini mengisahkan tentang misi kelompok astronaut yang melakukan perjalanan ke luar angkasa untuk mencari planet baru yang dapat dihuni manusia, karena Bumi menghadapi krisis ekologis yang mengancam keberlangsungan
-                                hidup manusia. Mereka harus menavigasi melalui lubang cacing dan melewati berbagai tantangan ilmiah serta pribadi dalam upaya untuk menyelamatkan umat manusia dari kepunahan.
+                                Film ini mengisahkan tentang misi kelompok astronaut yang melakukan perjalanan ke luar
+                                angkasa untuk mencari planet baru yang dapat dihuni manusia, karena Bumi menghadapi
+                                krisis ekologis yang mengancam keberlangsungan
+                                hidup manusia. Mereka harus menavigasi melalui lubang cacing dan melewati berbagai
+                                tantangan ilmiah serta pribadi dalam upaya untuk menyelamatkan umat manusia dari
+                                kepunahan.
                             </p>
-                            <a href="https://youtu.be/2LqzF5WauAw?si=--X3-_Rs-ieDobTL" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/2LqzF5WauAw?si=--X3-_Rs-ieDobTL" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -397,7 +449,9 @@
                     <div class="title">Ironman</div>
                     <div class="topic">Superhero, Action</div>
                     <div class="author">
-                        Film yang mengikuti perjalanan Tony Stark dari seorang miliarder playboy yang sombong menjadi pahlawan super yang bertanggung jawab, setelah dia membangun baju besi canggih yang memungkinkannya menjadi Iron Man.
+                        Film yang mengikuti perjalanan Tony Stark dari seorang miliarder playboy yang sombong menjadi
+                        pahlawan super yang bertanggung jawab, setelah dia membangun baju besi canggih yang
+                        memungkinkannya menjadi Iron Man.
                     </div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
@@ -422,10 +476,14 @@
                         <div class="info">
                             <h2>IT<br /><span>2017</span></h2>
                             <p>
-                                Berlatar belakang di kota kecil Derry, Maine, film ini mengikuti sekelompok anak yang dihadapkan pada kekuatan jahat dalam bentuk Pennywise, badut menakutkan yang menghantui kota mereka. Mereka memutuskan untuk menghadapi
-                                ketakutan mereka dan mengungkap kebenaran tentang kota mereka, melalui petualangan yang penuh horor dan pengorbanan.
+                                Berlatar belakang di kota kecil Derry, Maine, film ini mengikuti sekelompok anak yang
+                                dihadapkan pada kekuatan jahat dalam bentuk Pennywise, badut menakutkan yang menghantui
+                                kota mereka. Mereka memutuskan untuk menghadapi
+                                ketakutan mereka dan mengungkap kebenaran tentang kota mereka, melalui petualangan yang
+                                penuh horor dan pengorbanan.
                             </p>
-                            <a href="https://youtu.be/xKJmEC5ieOk?si=rE2gjwqZAscAfo2W" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/xKJmEC5ieOk?si=rE2gjwqZAscAfo2W" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -438,7 +496,9 @@
                     <div class="author">2016</div>
                     <div class="title">Deadpool</div>
                     <div class="topic">Superhero, Action, Comedy</div>
-                    <div class="author">Film yang memperkenalkan karakter anti-pahlawan Marvel Comics, Deadpool, yang terkenal karena gaya humor yang gelap, adegan aksi yang intens, serta penggunaan meta-humor yang unik.</div>
+                    <div class="author">Film yang memperkenalkan karakter anti-pahlawan Marvel Comics, Deadpool, yang
+                        terkenal karena gaya humor yang gelap, adegan aksi yang intens, serta penggunaan meta-humor yang
+                        unik.</div>
                     <div class="buttons">
                         <a class="popup-btn" id="seeMoreBtn">SEE MORE</a>
                         <button id="ratingBtn">
@@ -463,11 +523,16 @@
                         <div class="info">
                             <h2>Ironman<br /><span>2008</span></h2>
                             <p>
-                                Mengikuti perjalanan Tony Stark, seorang miliarder playboy dan genius teknologi, yang terperangkap di jantung konflik di Timur Tengah setelah dia ditawan oleh kelompok teroris. Tony membangun baju besi canggih yang
-                                memungkinkannya untuk melarikan diri dan bertarung melawan kejahatan sebagai Iron Man. Dalam prosesnya, dia berubah menjadi pahlawan yang bertanggung jawab dan memutuskan untuk menggunakan kekuatannya untuk melawan
+                                Mengikuti perjalanan Tony Stark, seorang miliarder playboy dan genius teknologi, yang
+                                terperangkap di jantung konflik di Timur Tengah setelah dia ditawan oleh kelompok
+                                teroris. Tony membangun baju besi canggih yang
+                                memungkinkannya untuk melarikan diri dan bertarung melawan kejahatan sebagai Iron Man.
+                                Dalam prosesnya, dia berubah menjadi pahlawan yang bertanggung jawab dan memutuskan
+                                untuk menggunakan kekuatannya untuk melawan
                                 kejahatan.
                             </p>
-                            <a href="https://youtu.be/KAE5ymVLmZg?si=E35jOWksqFkLj08S" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/KAE5ymVLmZg?si=E35jOWksqFkLj08S" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -554,11 +619,16 @@
                         <div class="info">
                             <h2>Deadpool<br /><span>2016</span></h2>
                             <p>
-                                Film ini memperkenalkan karakter anti-pahlawan Deadpool, yang sebelumnya dikenal sebagai Wade Wilson, seorang mantan tentara bayaran yang diberikan kekuatan penyembuhan yang luar biasa setelah menjadi subjek eksperimen
-                                yang mematikan. Deadpool memulai misi pembalasan dendam terhadap orang-orang yang telah menyiksanya, sambil menyelamatkan seorang wanita dari seorang penjahat yang kejam, dalam petualangan yang penuh dengan aksi dan humor
+                                Film ini memperkenalkan karakter anti-pahlawan Deadpool, yang sebelumnya dikenal sebagai
+                                Wade Wilson, seorang mantan tentara bayaran yang diberikan kekuatan penyembuhan yang
+                                luar biasa setelah menjadi subjek eksperimen
+                                yang mematikan. Deadpool memulai misi pembalasan dendam terhadap orang-orang yang telah
+                                menyiksanya, sambil menyelamatkan seorang wanita dari seorang penjahat yang kejam, dalam
+                                petualangan yang penuh dengan aksi dan humor
                                 gelap.
                             </p>
-                            <a href="https://youtu.be/FyKWUTwSYAs?si=KUNCfzSXwbiSqCQf" target="_blank" class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
+                            <a href="https://youtu.be/FyKWUTwSYAs?si=KUNCfzSXwbiSqCQf" target="_blank"
+                                class="trailer-btn" id="trailerBtn">WATCH TRAILER</a>
                         </div>
                     </div>
                 </div>
@@ -568,8 +638,8 @@
         <!-- arrow -->
         <div class="arrows">
             <button id="prev">
-                <
-                    <button id="next">></button>
+                < <button id="next">>
+            </button>
         </div>
     </div>
     <!-- Hero Section end -->
@@ -584,6 +654,11 @@
                     <img src="/img/g1.jpg" alt="Movie 1" />
                     <h3>The Wolverine</h3>
                     <p>Rating: 6.7/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="The Wolverine" data-image="/img/g1.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -592,6 +667,12 @@
                     <img src="/img/g2.jpg" alt="Movie 2" />
                     <h3>Harry Potter and the Deathly Hallows</h3>
                     <p>Rating: 7.7/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Harry Potter and the Deathly Hallows"
+                            data-image="/img/g2.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -600,6 +681,11 @@
                     <img src="/img/g3.jpg" alt="Movie 3" />
                     <h3>Loki</h3>
                     <p>Rating: 8.2/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Loki" data-image="/img/g3.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -608,6 +694,11 @@
                     <img src="/img/g4.jpg" alt="Movie 3" />
                     <h3>Deadpool</h3>
                     <p>Rating: 8/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Deadpool" data-image="/img/g4.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -616,6 +707,11 @@
                     <img src="/img/g5.jpg" alt="Movie 3" />
                     <h3>Iron-man</h3>
                     <p>Rating: 7.9/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Iron-man" data-image="/img/g5.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -624,6 +720,11 @@
                     <img src="/img/g6.jpg" alt="Movie 3" />
                     <h3>John Wick: Chapter 4</h3>
                     <p>Rating: 7.7/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="John Wick: Chapter 4" data-image="/img/g6.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -632,6 +733,11 @@
                     <img src="/img/g7.jpg" alt="Movie 3" />
                     <h3>World War Z</h3>
                     <p>Rating: 7/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="World War Z" data-image="/img/g7.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -640,6 +746,12 @@
                     <img src="/img/g8.jpg" alt="Movie 3" />
                     <h3>Captain America: The First Avenger</h3>
                     <p>Rating: 6.9/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Captain America: The First Avenger"
+                            data-image="/img/g8.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -648,6 +760,11 @@
                     <img src="/img/g9.jpg" alt="Bumblebee" />
                     <h3>Bumblebee</h3>
                     <p>Rating: 6.8/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Bumblebee" data-image="/img/g9.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -656,6 +773,11 @@
                     <img src="/img/g13.jpg" alt="Doctor Strange" />
                     <h3>Doctor Strange</h3>
                     <p>Rating: 7.5/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Doctor Strange" data-image="/img/g13.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -664,6 +786,11 @@
                     <img src="/img/g14.jpg" alt="Spiderman: No Way Home" />
                     <h3>Spiderman: No Way Home</h3>
                     <p>Rating: 8.5/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Spiderman: No Way Home" data-image="/img/g14.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
 
@@ -672,6 +799,12 @@
                     <img src="/img/deadpolxwolfren.jpg" alt="Movie 3" />
                     <h3>Deadpool X Wolverine</h3>
                     <p>Rating: 8/10</p>
+                    @if (session('user_id'))
+                        <button class="bookmark-btn" data-title="Deadpool X Wolverine"
+                            data-image="/img/deadpolxwolfren.jpg">
+                            <i class="fas fa-bookmark"></i> Bookmark
+                        </button>
+                    @endif
                 </div>
             </a>
         </div>
@@ -683,19 +816,22 @@
         <h2>Upcoming <span>Movie</span></h2>
         <div class="movies-grid">
             <div class="movie">
-                <a href="https://www.imdb.com/title/tt4712810/?ref_=ext_shr_lnk"><img src="/img/g10.png" alt="Upcoming Movie 1" /></a>
+                <a href="https://www.imdb.com/title/tt4712810/?ref_=ext_shr_lnk"><img src="/img/g10.png"
+                        alt="Upcoming Movie 1" /></a>
                 <h3>Now You See Me : Now You Don't</h3>
                 <p>Release Date: November 14, 2025</p>
                 <div class="countdown" data-release-date="2025-11-14"></div>
             </div>
             <div class="movie">
-                <a href="https://www.imdb.com/title/tt26443597/?ref_=ext_shr_lnk"><img src="/img/g11.png" alt="Upcoming Movie 2" /></a>
+                <a href="https://www.imdb.com/title/tt26443597/?ref_=ext_shr_lnk"><img src="/img/g11.png"
+                        alt="Upcoming Movie 2" /></a>
                 <h3>ZooTopia 2</h3>
                 <p>Release Date: November 26, 2025</p>
                 <div class="countdown" data-release-date="2025-11-26"></div>
             </div>
             <div class="movie">
-                <a href="https://www.imdb.com/title/tt22084616/?ref_=mv_close"><img src="/img/g12.png" alt="Upcoming Movie 3" /></a>
+                <a href="https://www.imdb.com/title/tt22084616/?ref_=mv_close"><img src="/img/g12.png"
+                        alt="Upcoming Movie 3" /></a>
                 <h3>Spider-Man: Brand New Day</h3>
                 <p>Release Date: July 31, 2026</p>
                 <div class="countdown" data-release-date="2026-07-31"></div>

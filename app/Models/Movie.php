@@ -10,4 +10,19 @@ class Movie extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'genre', 'rating', 'year', 'poster'];
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }
