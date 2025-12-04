@@ -825,16 +825,16 @@
             <div class="movie">
                 <a href="https://www.imdb.com/title/tt4712810/?ref_=ext_shr_lnk"><img src="/img/g10.png"
                         alt="Upcoming Movie 1" /></a>
-                <h3>Now You See Me : Now You Don't</h3>
-                <p>Release Date: November 14, 2025</p>
-                <div class="countdown" data-release-date="2025-11-14"></div>
+                <h3>The Super Mario Galaxy Movie</h3>
+                <p>Release Date: April 3, 2026</p>
+                <div class="countdown" data-release-date="2026-04-03"></div>
             </div>
             <div class="movie">
                 <a href="https://www.imdb.com/title/tt26443597/?ref_=ext_shr_lnk"><img src="/img/g11.png"
                         alt="Upcoming Movie 2" /></a>
-                <h3>ZooTopia 2</h3>
-                <p>Release Date: November 26, 2025</p>
-                <div class="countdown" data-release-date="2025-11-26"></div>
+                <h3>Toy Story 5</h3>
+                <p>Release Date: June 19, 2026</p>
+                <div class="countdown" data-release-date="2026-06-19"></div>
             </div>
             <div class="movie">
                 <a href="https://www.imdb.com/title/tt22084616/?ref_=mv_close"><img src="/img/g12.png"
