@@ -32,9 +32,8 @@ class ReviewFeed extends Model
 
     public function replies()
     {
-        // Only top-level replies (no parent)
+        // All replies for this feed (admin can see flat list)
         return $this->hasMany(ReviewFeedReply::class)
-            ->whereNull('parent_reply_id')
-            ->with(['user', 'replies']);
+            ->with(['user']);
     }
 }
